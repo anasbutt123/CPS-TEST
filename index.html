@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPS Test — Click Speed Test & Clicks Per Second Counter</title>
+    <meta name="description"
+        content="Take the official CPS Test to measure your click speed. Our software helps you track performance with 100% accuracy. Start your CPS Test now!">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is the result calculated on this cps test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our cps test takes the total number of valid clicks and divides them by the precise time in milliseconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good score for a click speed test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A good score for most casual users is between 6 and 8 CPS, while competitive gamers aim higher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this utility work on all browsers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this clicks per second application works on all modern browsers like Chrome, Edge, and Safari."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is jitter clicking dangerous for your health?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High-speed clicking techniques can cause strain if overused. Always take breaks and rest your hand."
+      }
+    }
+  ]
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CPS Test — Click Speed Test",
+  "url": "https://yourdomain.com",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "All",
+  "description": "Measure your clicks per second with this fast and accurate CPS test tool."
+}
+</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <img src="assets/logo/DRAFT2.png" alt="clicking speed logo" class="logo-img">
+            </a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <!-- Mobile-only header inside drawer -->
+                <div class="mobile-nav-header">
+                    <img src="assets/logo/DRAFT2.png" alt="logo" class="logo-img">
+                </div>
+                <a href="index.html">Home</a>
+                <a href="spacebar-clicker.html">Spacebar Clicker</a>
+                <a href="kohi.html">Kohi</a>
+                <a href="butterfly.html">Butterfly</a>
+                <a href="jitter.html">Jitter</a>
+                <div class="dropdown">
+                    <div class="dropdown-toggle">Guides <span class="arrow">▼</span></div>
+                    <div class="dropdown-menu">
+                        <a href="how-to-click-faster.html">How to click faster</a>
+                        <a href="world-record.html">World record</a>
+                        <a href="average-cps.html">Average cps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section-padding">
+        <header style="text-align: center; margin-bottom: 50px;">
+            <span class="rating-badge glow-border"
+                style="color: var(--accent-cyan); margin-bottom: 20px; display: inline-block;">★ MOST ACCURATE</span>
+            <div
+                style="font-size: 2rem; line-height: 1.2; font-weight: bold; margin: 0.2em 0; text-transform: uppercase;">
+                <span class="glow-text">CPS TEST</span> <br> HOW FAST CAN YOU CLICK?
+            </div>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 20px auto;">Measure your <strong>speed
+                    results</strong>
+                with millisecond precision. Take the ultimate <strong>clicking challenge</strong> to
+                see where you rank — from average to godlike.</p>
+        </header>
+
+        <section class="test-container">
+            <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
+                <button class="btn-tab active" data-mode="timed">TIMED</button>
+                <button class="btn-tab" data-mode="challenge">CHALLENGE</button>
+                <button class="btn-tab" data-mode="endurance">ENDURANCE</button>
+            </div>
+
+            <div class="duration-selector" id="duration-selector" style="justify-content: center;">
+                <span
+                    style="font-size: 0.8rem; color: var(--text-muted); align-self: center; margin-right: 10px;">DURATION:</span>
+                <button class="btn-duration" data-seconds="1">1s</button>
+                <button class="btn-duration active" data-seconds="5">5s</button>
+                <button class="btn-duration" data-seconds="10">10s</button>
+                <button class="btn-duration" data-seconds="15">15s</button>
+                <button class="btn-duration" data-seconds="30">30s</button>
+                <button class="btn-duration" data-seconds="60">60s</button>
+            </div>
+
+            <div class="challenge-message" id="challenge-message"
+                style="display: none; justify-content: center; align-items: center; gap: 10px; margin-bottom: 20px; font-size: 0.95rem; color: var(--text-secondary);">
+                <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 1px;">CHALLENGE:</span> Reach
+                <strong style="color: #fff;">100</strong> clicks as fast as you can.
+            </div>
+
+            <div class="endurance-message" id="endurance-message"
+                style="display: none; justify-content: center; align-items: center; gap: 10px; margin-bottom: 20px; font-size: 0.95rem; color: var(--text-secondary);">
+                <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 1px;">ENDURANCE:</span> Full
+                60s test — keep clicking. We chart your CPS in 5s buckets.
+            </div>
+
+            <div class="click-test-container">
+                <div class="time-bar-container">
+                    <div class="time-bar"></div>
+                </div>
+                <div class="click-area" id="click-area">
+                    <div class="click-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.5 3.5L11 19.5L13.5 12.5L20.5 10L5.5 3.5Z" stroke="#00f2ff" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M11.5 2.5V4.5" stroke="#00f2ff" stroke-width="2" stroke-linecap="round" />
+                            <path d="M15.5 4.5L14.5 6" stroke="#00f2ff" stroke-width="2" stroke-linecap="round" />
+                            <path d="M9.5 4.5L10.5 6" stroke="#00f2ff" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="click-instruction">Click anywhere here to start</div>
+                    <div class="click-hint">First click starts the timer • You have 5 seconds</div>
+                    <div class="live-stats">
+                        <div class="live-count" id="live-clicks-count">0</div>
+                        <div class="live-cps-box">CLICKS • <span id="live-cps-value">0.0</span> CPS</div>
+                        <div class="live-remaining" id="live-time-remaining">5.00S REMAINING</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="test-actions">
+                <button class="btn-reset" id="mid-test-reset">
+                    <span>↺</span> RESET CLICKER
+                </button>
+            </div>
+
+            <!-- Results Dashboard (Inline) -->
+            <div class="results-dashboard" id="results-dashboard">
+                <div class="modal-header-grid">
+                    <div class="result-card">
+                        <span class="label">CLICKS</span>
+                        <span class="value" id="res-clicks">0</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="label">TIME</span>
+                        <span class="value" id="res-time">5.00s</span>
+                    </div>
+                    <div class="result-card rating-card">
+                        <span class="label">RATING</span>
+                        <div class="rating-row">
+                            <span class="icon">🔥</span>
+                            <span class="value" id="res-rating-value">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Personal Best Banner -->
+                <div class="new-pb-banner" id="new-pb-banner">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6 9C6 9 3 9 3 6C3 3 6 3 6 3V9ZM18 9C18 9 21 9 21 6C21 3 18 3 18 3V9ZM6 3H18V12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12V3ZM12 18V21M8 21H16"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>NEW PERSONAL BEST</span>
+                </div>
+
+                <!-- Endurance Chart -->
+                <div class="chart-container" id="endurance-chart"
+                    style="display: none; margin-top: 20px; background: #0c1117; border: 1px solid rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 12px; margin-bottom: 20px;">
+                    <div class="label"
+                        style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px;">
+                        CPS PER 5S INTERVAL</div>
+                    <div class="bars-wrapper"
+                        style="display: flex; align-items: flex-end; gap: 8px; height: 180px; padding-bottom: 30px; position: relative;">
+                        <!-- Bars injected by JS -->
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn-primary" id="restart-btn">
+                        <span>↺</span> TRY AGAIN
+                    </button>
+                    <button class="btn-secondary" id="share-btn">
+                        <span>🔗</span> SHARE SCORE
+                    </button>
+                </div>
+
+                <div class="modal-content-grid">
+                    <div class="score-panel">
+                        <div class="panel-header">
+                            <h3>RECENT SCORES</h3>
+                            <span class="icon">📈</span>
+                        </div>
+                        <div class="score-list" id="recent-scores-list">
+                            <!-- Dynamic Rows -->
+                        </div>
+                    </div>
+                    <div class="score-panel">
+                        <div class="panel-header">
+                            <h3>PERSONAL BESTS • <span id="pb-mode-title">TIMED</span></h3>
+                            <span class="icon">🏆</span>
+                        </div>
+                        <div class="pb-list" id="pb-list">
+                            <!-- Dynamic Rows (1s, 5s, 10s etc) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section class="info-section">
+            <h1 class="info-title">CPS Test — Official Click Speed Test</h1>
+            <div class="info-content">
+                <p>Welcome to the ultimate <strong>cps test</strong>, the global standard for gamers, professional
+                    athletes, and enthusiasts looking to measure their finger dexterity. Whether you are a Minecraft
+                    PvPer aiming to dominate the arena or a competitive shooter player refining your trigger finger,
+                    knowing your performance metrics is essential. This tool provides a pixel-perfect, zero-latency
+                    environment designed to push your limits and help you achieve top-tier rankings in any competitive
+                    scenario.</p>
+
+                <p>In the modern digital landscape, the speed at which you can interact with your interface is a
+                    critical metric. This assessment is not just a game; it is a benchmark of motor skill,
+                    reaction time, and mechanical proficiency. Our platform is built using high-performance
+                    architecture to ensure that every tap, click, and vibration is registered the exact moment it
+                    happens, providing you with the most accurate data available on the internet today.</p>
+
+                <h2 class="info-title">What is a Clicks Per Second Measurement?</h2>
+                <p>The term "CPS" simply stands for <strong>Clicks Per Second</strong>. It is a mathematical average
+                    derived by taking your total number of hits and dividing them by the total time elapsed during
+                    a session. While it sounds simple, the physiological and technical requirements to maintain a high
+                    score are immense. Most casual users land somewhere in the range of 5 to 6, while professional
+                    "jitter clickers" or "butterfly clickers" can easily exceed 14 or 15 consistently.</p>
+
+                <p>Understanding your score involves analyzing both your peak speed and your endurance. A 1-second
+                    burst might show a very high number, but maintaining that same intensity over a 60-second window is
+                    a true test of physical stamina. This is why our software offers multiple durations — to give you a
+                    complete picture of your clicking profile.</p>
+
+                <h2 class="info-title">Why Accuracy Matters in Our Utility</h2>
+                <p>Not all tools are created equal. Many older sites use basic JavaScript timers that are prone to
+                    input lag and browser throttling. If your browser is busy rendering an ad or background process,
+                    a standard <strong>cps test</strong> might miss three or four of your clicks, skewing your results.
+                    We have solved this by using high-resolution performance timestamps and dedicated event
+                    listeners. This level of precision is why our utility is the preferred choice for serious gamers
+                    who demand millisecond accuracy.</p>
+
+                <p>Furthermore, we understand that modern users are often on mobile devices. Standard web events on
+                    smartphones often have a built-in 300ms delay to check for double-taps. Our <strong>click speed
+                        test</strong> uses specialized touch events to eliminate this delay, providing a "gaming-grade"
+                    experience directly in your mobile browser. No matter what device you use, your score will be 100%
+                    accurate.</p>
+
+                <h2 class="info-title">How to Use the Tool for Best Results</h2>
+                <p>To get the most consistent and accurate result from our software, follow these professional
+                    recommendations:</p>
+                <ul class="info-list">
+                    <li><span>Choose Your Duration:</span> Select a time window that fits your current goal. The
+                        5-second duration is the most common for quick warm-ups and comparisons.</li>
+                    <li><span>Ergonomic Setup:</span> Ensure your hand and wrist are in a comfortable position. Tension
+                        is the enemy of speed. Relaxed fingers are significantly faster than tensed ones.</li>
+                    <li><span>Warm Up:</span> Just like any physical activity, your fingers need a warm-up. Take a few
+                        practice rounds on the tool before aiming for a new personal best.</li>
+                    <li><span>Maintain Focus:</span> Stay focused on the click area. The live speed
+                        counter updates instantly, allowing you to adjust your rhythm in real-time.</li>
+                </ul>
+
+                <h2 class="info-title">Advanced Techniques to Boost Your Performance</h2>
+                <p>If you find yourself stuck at a certain speed, it might be time to move beyond the standard index
+                    finger click. Top players on our leaderboards often employ specific physical techniques to bypass
+                    the standard limitations of human reaction time.</p>
+
+                <p><strong>Jitter Clicking:</strong> This involves tensing your arm and wrist muscles until they
+                    vibrate. This vibration translates into rapid-fire clicks on the mouse button. While it is one of
+                    the fastest methods, it takes significant practice to maintain accuracy while jittering. Many
+                    players
+                    spend weeks on our <strong>cps test</strong> just to master this vibration technique.</p>
+
+                <p><strong>Butterfly Clicking:</strong> By using two fingers (usually the index and middle) on a single
+                    mouse button in a see-saw motion, you can effectively double your speed. This is a favorite among
+                    Minecraft players for its reliability and relatively low physical strain compared to jittering. It
+                    is the most balanced way to improve your <strong>overall technique</strong>.</p>
+
+                <p><strong>Drag Clicking:</strong> This is a hardware-dependent technique where you drag your finger
+                    across the mouse button to create friction. This friction registers as dozens of individual clicks
+                    every second. While powerful, it requires a mouse with a specific surface texture. It is often the
+                    method used to reach the "Godlike" ranking on our platform.</p>
+
+                <h2 class="info-title">Rankings and Global Community Standards</h2>
+                <p>Compare your performance against the global community. Our ranking system is designed to provide
+                    realistic milestones for your clicking journey. From casual clicking to god-like speed, see where
+                    you land on the official <strong>click speed test</strong> scale.</p>
+
+                <table class="rating-table">
+                    <thead>
+                        <tr>
+                            <th>CPS RANGE</th>
+                            <th>RATING</th>
+                            <th>DESCRIPTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0—4 CPS</td>
+                            <td style="color: var(--text-secondary); font-weight: 700;">Slow</td>
+                            <td>Casual usage. Most non-gamers land here during their first <strong>cps test</strong>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4—7 CPS</td>
+                            <td style="color: var(--accent-cyan); font-weight: 700;">Gamer</td>
+                            <td>Solid speed. You have some experience with a mouse or touchscreen. This is a good
+                                baseline.</td>
+                        </tr>
+                        <tr>
+                            <td>7—10 CPS</td>
+                            <td style="color: #10b981; font-weight: 700;">Pro</td>
+                            <td>Very fast. You are likely using a refined technique or have high natural speed. You've
+                                mastered the basics.</td>
+                        </tr>
+                        <tr>
+                            <td>10—13 CPS</td>
+                            <td style="color: #f59e0b; font-weight: 700;">Elite</td>
+                            <td>Top-tier performance. You are dominating in 99% of gaming scenarios. Your speed is
+                                legendary.</td>
+                        </tr>
+                        <tr>
+                            <td>13—15 CPS</td>
+                            <td style="color: var(--accent-purple); font-weight: 700;">Insane</td>
+                            <td>Master level. You have likely spent hours on our <strong>challenging tool</strong> to
+                                get
+                                here.</td>
+                        </tr>
+                        <tr>
+                            <td>15+ CPS</td>
+                            <td style="color: #ec4899; font-weight: 700;">Godlike</td>
+                            <td>World-class speed. You are breaking the limits of human reaction time on the
+                                <strong>performance</strong> tracker.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="info-title">The Physiology and Ergonomics of Clicking</h2>
+                <p>Reaching a high score is a physical feat. It involves the coordination of the fast-twitch muscle
+                    fibers in your forearm and hand. However, with high-speed clicking comes the responsibility of
+                    health. Repetitive strain is a real concern for those who spend hours on a <strong>speed
+                        check</strong>. It is vital to take frequent breaks, stretch your hands, and never push through
+                    sharp pain.</p>
+
+                <p>Proper ergonomics, such as having your elbow at a 90-degree angle and your wrist supported, can
+                    actually improve your <strong>hitting speed</strong> by reducing unnecessary tension. A
+                    relaxed arm can vibrate or move much faster than a cramped one. Professional players often use
+                    our <strong>utility</strong> to find the "sweet spot" of their ergonomic setup where they
+                    can maintain peak speed for the longest duration.</p>
+
+                <h2 class="info-title">Gear and Hardware Optimization</h2>
+                <p>While skill is the primary factor, your hardware can definitely limit your potential. Heavy office
+                    mice with deep travel buttons are not ideal for speed. Competitive players prefer lightweight mice
+                    with "optical switches" that register clicks faster and have a much shorter reset time. This allows
+                    you to fit more clicks into every second of the session.</p>
+
+                <p>Additionally, the surface you click on matters. If you are on a mobile device, a clean screen with
+                    low friction is best. On a PC, a high-quality mousepad ensures your hand remains stable while your
+                    fingers do the work. Many users find that switching to a gaming mouse instantly adds 1 or 2 to
+                    their average on our <strong>platform</strong>.</p>
+
+                <h2 class="info-title">Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>How is the result calculated on this cps test?</span>
+                            <span class="faq-icon"></span>
+                        </div>
+                        <div class="faq-content">
+                            Our <strong>cps test</strong> takes the total number of valid clicks and divides them by the
+                            precise time in milliseconds. We then multiply by 1000 to get your final measurement. This
+                            platform uses the
+                            performance.now() API to ensure accuracy down to the microsecond level.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>What is a good score for a click speed test?</span>
+                            <span class="faq-icon"></span>
+                        </div>
+                        <div class="faq-content">
+                            A good score for most casual users is between 6 and 8. However, if you are a competitive
+                            gamer,
+                            you should aim for higher results. You can use our software to track your progress and hit
+                            these milestones.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>Does this utility work on all browsers?</span>
+                            <span class="faq-icon"></span>
+                        </div>
+                        <div class="faq-content">
+                            Yes, our <strong>clicks per second</strong> application is cross-browser compatible.
+                            However, for the absolute lowest latency
+                            and highest accuracy, we recommend using modern versions of Chrome, Edge, or Safari. This
+                            ensures the engine runs at peak performance.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>Is jitter clicking dangerous for your health?</span>
+                            <span class="faq-icon"></span>
+                        </div>
+                        <div class="faq-content">
+                            If done for extended periods without rest, any high-speed clicking technique can lead to
+                            strain. Always use our tools responsibly. If you feel any discomfort while playing, stop
+                            immediately and rest your hand.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore Tools -->
+        <section class="info-section">
+            <h2 class="info-title">Explore Our <span class="glow-text">Tools</span></h2>
+            <div class="related-grid">
+                <a href="index.html" class="test-card">
+                    <h4>Main Test</h4>
+                    <p>Free speed assessment.</p>
+                </a>
+                <a href="kohi.html" class="test-card">
+                    <h4>Kohi Click Test</h4>
+                    <p>Minecraft PvP clicking speed test.</p>
+                </a>
+                <a href="butterfly.html" class="test-card">
+                    <h4>Butterfly Click Test</h4>
+                    <p>Test your butterfly clicking technique.</p>
+                </a>
+                <a href="jitter.html" class="test-card">
+                    <h4>Jitter Click Test</h4>
+                    <p>Measure your jitter click CPS.</p>
+                </a>
+                <a href="spacebar-clicker.html" class="test-card">
+                    <h4>Spacebar Clicker</h4>
+                    <p>Test your keyboard typing and pressing speed.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Related Guides -->
+        <section class="info-section">
+            <h2 class="info-title">Read Our <span class="glow-text">Guides</span></h2>
+            <div class="related-grid">
+                <a href="how-to-click-faster.html" class="test-card">
+                    <h4>How to Click Faster</h4>
+                    <p>7 proven techniques to boost your CPS.</p>
+                </a>
+                <a href="world-record.html" class="test-card">
+                    <h4>CPS World Record</h4>
+                    <p>Fastest speed ever recorded.</p>
+                </a>
+                <a href="average-cps.html" class="test-card">
+                    <h4>Average CPS Score</h4>
+                    <p>What is a good performance score?</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <div class="click-test-container"
+            style="text-align: center; margin-top: 80px; background: linear-gradient(rgba(12, 17, 23, 0.9), rgba(12, 17, 23, 0.9)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2070'); background-size: cover; border-color: rgba(0, 242, 255, 0.3);">
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">Ready to <span class="glow-text">level up</span> your CPS?
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;">Read our 7-technique guide and watch your
+                average jump 3+ CPS.</p>
+            <a href="how-to-click-faster.html" class="btn-primary">READ THE GUIDE →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="logo footer-logo">
+                        <img src="assets/logo/DRAFT2.png" alt="logo" class="logo-img">
+                    </div>
+                    <p class="footer-desc">The fastest, most accurate online utility. Built for Minecraft PvP
+                        players, speedrunners, and anyone who wants to show their true clicking speed.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>CLICK TESTS</h4>
+                    <ul>
+                        <li><a href="index.html">Main Clicker</a></li>
+                        <li><a href="spacebar-clicker.html">Spacebar Clicker</a></li>
+                        <li><a href="kohi.html">Kohi Click Test (10s)</a></li>
+                        <li><a href="butterfly.html">Butterfly Click Test</a></li>
+                        <li><a href="jitter.html">Jitter Click Test</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>GUIDES</h4>
+                    <ul>
+                        <li><a href="how-to-click-faster.html">How to Click Faster — The ultimate guide</a></li>
+                        <li><a href="world-record.html">CPS World Record</a></li>
+                        <li><a href="average-cps.html">Average CPS Score Chart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Our Site. All rights reserved.</p>
+                <p>v1.0 — built for clickers, by clickers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/test-logic.js"></script>
+</body>
+
+</html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -492,3 +493,499 @@
 </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacebar Clicker - Test Your Spacebar Speed | CPS Test</title>
+    <meta name="description"
+        content="Use our spacebar clicker to test your speed. The ultimate spacebar counter and spacebar speed test tool. Hit the spacebar as fast as you can to measure your CPS.">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Spacebar Clicker — Spacebar Speed Test",
+  "url": "https://yourdomain.com/spacebar-clicker",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "All",
+  "description": "Test how fast you can press the spacebar with this spacebar clicker tool. Measure your spacebar speed, track your score, and improve your keyboard tapping performance.",
+  "browserRequirements": "Requires JavaScript enabled",
+  "featureList": [
+    "Spacebar speed test",
+    "Real-time key press counter",
+    "Instant result calculation",
+    "Works on all devices"
+  ]
+}
+</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <img src="assets/logo/DRAFT2.png" alt="cps test logo" class="logo-img">
+            </a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <div class="mobile-nav-header">
+                    <img src="assets/logo/DRAFT2.png" alt="logo" class="logo-img">
+                </div>
+                <a href="index.html">Home</a>
+                <a href="spacebar-clicker.html">Spacebar Clicker</a>
+                <a href="kohi.html">Kohi</a>
+                <a href="butterfly.html">Butterfly</a>
+                <a href="jitter.html">Jitter</a>
+                <div class="dropdown">
+                    <div class="dropdown-toggle">Guides <span class="arrow">▼</span></div>
+                    <div class="dropdown-menu">
+                        <a href="how-to-click-faster.html">How to click faster</a>
+                        <a href="world-record.html">World record</a>
+                        <a href="average-cps.html">Average cps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section-padding">
+        <header style="text-align: center; margin-bottom: 50px;">
+            <span class="rating-badge glow-border"
+                style="color: var(--accent-cyan); margin-bottom: 20px; display: inline-block;">★ SPACEBAR TEST</span>
+            <div style="    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: bold;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;"><span class="glow-text">Spacebar </span> Speed Test<br>How Fast Can You Hit Space?</div>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 20px auto;">Measure your spacebar clicking
+                speed with millisecond precision. Plan a duration, hit the spacebar as fast as you can, and find out
+                where you rank.</p>
+        </header>
+
+        <section class="test-container">
+            <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
+                <button class="btn-tab active" data-mode="timed">TIMED</button>
+                <button class="btn-tab" data-mode="challenge">CHALLENGE</button>
+                <button class="btn-tab" data-mode="endurance">ENDURANCE</button>
+            </div>
+
+            <div class="duration-selector" id="duration-selector" style="justify-content: center;">
+                <span
+                    style="font-size: 0.8rem; color: var(--text-muted); align-self: center; margin-right: 10px;">DURATION:</span>
+                <button class="btn-duration" data-seconds="1">1s</button>
+                <button class="btn-duration active" data-seconds="5">5s</button>
+                <button class="btn-duration" data-seconds="10">10s</button>
+                <button class="btn-duration" data-seconds="15">15s</button>
+                <button class="btn-duration" data-seconds="30">30s</button>
+                <button class="btn-duration" data-seconds="60">60s</button>
+            </div>
+
+            <div class="challenge-message" id="challenge-message"
+                style="display: none; justify-content: center; align-items: center; gap: 10px; margin-bottom: 20px; font-size: 0.95rem; color: var(--text-secondary);">
+                <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 1px;">CHALLENGE:</span> Reach
+                <strong style="color: #fff;">100</strong> presses as fast as you can.
+            </div>
+
+            <div class="endurance-message" id="endurance-message"
+                style="display: none; justify-content: center; align-items: center; gap: 10px; margin-bottom: 20px; font-size: 0.95rem; color: var(--text-secondary);">
+                <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 1px;">ENDURANCE:</span> Full
+                60s test — keep hitting space. We chart your CPS in 5s buckets.
+            </div>
+
+            <div class="click-test-container spacebar-container">
+                <div class="time-bar-container">
+                    <div class="time-bar"></div>
+                </div>
+
+                <!-- Live Stats (Moved above the spacebar) -->
+                <div class="live-stats"
+                    style="display: none; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 30px;">
+                    <div class="live-count" id="live-clicks-count"
+                        style="font-size: 6rem; font-weight: 800; color: var(--accent-cyan); text-shadow: 0 0 30px rgba(0, 242, 255, 0.5); font-family: 'Space Grotesk', sans-serif; line-height: 1;">
+                        0</div>
+                    <div class="live-cps-box"
+                        style="margin-top: 10px; font-size: 1rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">
+                        PRESSES • <span id="live-cps-value" style="color: #fff; font-weight: 700;">0.0</span> CPS</div>
+                    <div class="live-remaining" id="live-time-remaining"
+                        style="margin-top: 5px; font-size: 0.9rem; color: var(--accent-cyan); font-weight: 600; font-family: 'Space Grotesk', sans-serif;">
+                        5.00S REMAINING</div>
+                </div>
+
+                <!-- Instructions -->
+                <div class="click-instruction spacebar-instruction"
+                    style="font-size: 2.2rem; font-weight: 700; text-align: center; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 2px;">
+                    Press Spacebar to start</div>
+                <div class="click-hint spacebar-hint"
+                    style="font-size: 1rem; color: var(--text-secondary); opacity: 0.8;">First press starts the timer •
+                    You have 5 seconds</div>
+
+                <!-- The Spacebar Key (Acts as the click-area) -->
+                <div class="spacebar-key" id="click-area">
+                    <span class="spacebar-text">PRESS ME!</span>
+                </div>
+            </div>
+
+            <div class="test-actions">
+                <button class="btn-reset" id="mid-test-reset">
+                    <span>↺</span> RESET TIMER
+                </button>
+            </div>
+
+            <!-- Results Dashboard (Inline) -->
+            <div class="results-dashboard" id="results-dashboard">
+                <div class="modal-header-grid">
+                    <div class="result-card">
+                        <span class="label">PRESSES</span>
+                        <span class="value" id="res-clicks">0</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="label">TIME</span>
+                        <span class="value" id="res-time">5.00s</span>
+                    </div>
+                    <div class="result-card rating-card">
+                        <span class="label">RATING</span>
+                        <div class="rating-row">
+                            <span class="icon">🔥</span>
+                            <span class="value" id="res-rating-value">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Personal Best Banner -->
+                <div class="new-pb-banner" id="new-pb-banner">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6 9C6 9 3 9 3 6C3 3 6 3 6 3V9ZM18 9C18 9 21 9 21 6C21 3 18 3 18 3V9ZM6 3H18V12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12V3ZM12 18V21M8 21H16"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>NEW PERSONAL BEST</span>
+                </div>
+
+                <!-- Endurance Chart -->
+                <div class="chart-container" id="endurance-chart"
+                    style="display: none; margin-top: 20px; background: #0c1117; border: 1px solid rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 12px; margin-bottom: 20px;">
+                    <div class="label"
+                        style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px;">
+                        CPS PER 5S INTERVAL</div>
+                    <div class="bars-wrapper"
+                        style="display: flex; align-items: flex-end; gap: 8px; height: 180px; padding-bottom: 30px; position: relative;">
+                        <!-- Bars injected by JS -->
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn-primary" id="restart-btn">
+                        <span>↺</span> TRY AGAIN
+                    </button>
+                    <button class="btn-secondary" id="share-btn">
+                        <span>🔗</span> SHARE SCORE
+                    </button>
+                </div>
+
+                <div class="modal-content-grid">
+                    <div class="score-panel">
+                        <div class="panel-header">
+                            <h3>RECENT SCORES</h3>
+                            <span class="icon">📈</span>
+                        </div>
+                        <div class="score-list" id="recent-scores-list">
+                            <!-- Dynamic Rows -->
+                        </div>
+                    </div>
+                    <div class="score-panel">
+                        <div class="panel-header">
+                            <h3>PERSONAL BESTS • <span id="pb-mode-title">TIMED</span></h3>
+                            <span class="icon">🏆</span>
+                        </div>
+                        <div class="pb-list" id="pb-list">
+                            <!-- Dynamic Rows (1s, 5s, 10s etc) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section class="info-section">
+            <h1 class="info-title">The Ultimate Spacebar Clicker Test</h1>
+            <div class="info-content">
+                <p>Welcome to the ultimate <strong>spacebar speed</strong> test, the most accurate and responsive tool
+                    designed to measure your keyboard tapping speed. Whether you are a competitive gamer striving for
+                    peak performance, a speedrunner executing frame-perfect glitches, or simply someone looking to
+                    improve your overall typing mechanics, knowing your true spacebar speed is absolutely crucial. The
+                    tool has been meticulously engineered from the ground up to provide you with millisecond-precision
+                    tracking, ensuring that every single hit on your spacebar is registered instantly, without delay or
+                    dropped inputs.</p>
+
+                <p>Our <strong>spacebar testing tool</strong> is much more than just a simple, rudimentary counter. It
+                    is a
+                    comprehensive, feature-rich tool that allows you to choose different time intervals, track your
+                    performance over time, and compare your best scores with the global average. By utilizing
+                    high-resolution performance timing built directly into modern web browsers, our utility guarantees
+                    that lag, stutter, and input delay are completely eliminated. This means you get a true, unfiltered
+                    reflection of your physical speed and mechanical keyboard performance.</p>
+
+                <p>When you use this test, you aren't just mashing a key; you are engaging in a precise measurement of
+                    human reflex and hardware capability. Many users find that practicing on it daily significantly
+                    improves their coordination, finger strength, and reaction time across a variety of desktop
+                    applications.</p>
+
+                <h2>Why Do You Need a Dedicated Spacebar Speed Test?</h2>
+                <p>You might be wondering why someone would need a dedicated <strong>spacebar speed test</strong> rather
+                    than just a standard mouse click test. The answer lies deep within the mechanics of modern gaming
+                    and rapid typing. In countless competitive video games—especially rhythm games, fast-paced
+                    platformers, and intense first-person shooters—the spacebar serves as the primary jump, dodge, or
+                    crucial action key. A fraction of a millisecond can literally be the difference between winning a
+                    high-stakes engagement and losing a match. Practicing regularly with it helps build essential muscle
+                    memory, increases finger stamina for long gaming sessions, and hones your reflex speed to
+                    near-superhuman levels.</p>
+
+                <p>Furthermore, mechanical keyboard enthusiasts and professional typists frequently use this tool to
+                    test the actuation force, travel distance, and bounce-back rate of new custom switches. If you have
+                    just meticulously lubed and installed a set of premium linear speed switches in your custom
+                    keyboard, running a quick 10-second benchmark on it is the absolute perfect way to validate their
+                    performance and ensure the stabilizer wires are balanced correctly.</p>
+
+                <p>In addition to gaming and hardware testing, the app is simply a fun and competitive way to challenge
+                    your friends. It provides a level playing field where anyone with a keyboard can step up and prove
+                    their dexterity.</p>
+
+                <h2 class="info-title">How to Master the Spacebar Tool</h2>
+                <p>Using our platform is incredibly straightforward, but mastering it takes focus. We have designed the
+                    user interface to be sleek, distraction-free, and highly intuitive, allowing you to focus entirely
+                    on maximizing your speed. Follow these simple, step-by-step instructions to get the absolute most
+                    accurate measurement of your spacebar tapping abilities:</p>
+                <ol class="info-list">
+                    <li><span>Select Your Preferred Time Interval:</span> Directly above the visual spacebar interface,
+                        you will see a neatly organized row of time duration buttons. You can choose from a
+                        lightning-fast 1-second burst test to gauge pure twitch reaction, all the way up to an
+                        endurance-testing 60-second marathon to test your stamina. The universally accepted standard
+                        benchmark for comparing scores on it is typically the 5-second or 10-second test.</li>
+                    <li><span>Position Your Hands Correctly:</span> Before you begin, ensure your keyboard is positioned
+                        comfortably. Plant your wrists firmly on your desk or wrist rest to provide a stable foundation.
+                        Good ergonomics are critical for achieving high scores on the test without causing unnecessary
+                        strain.</li>
+                    <li><span>Start Tapping Immediately:</span> You do not need to click a clumsy 'start' button to
+                        begin. Simply press the spacebar on your keyboard, and the high-precision timer will instantly
+                        activate on the very first downstroke. The stylish visual spacebar on the screen will animate
+                        dynamically with every single press, giving you highly satisfying, immediate visual feedback.
+                    </li>
+                    <li><span>Maintain Your Rhythm and Focus:</span> Try to establish and maintain a consistent, rapid
+                        tapping speed. Do not tense up too early. The interface will vividly display your live presses
+                        per second (CPS) and the precise remaining time right on the screen, updating every frame.</li>
+                    <li><span>Review and Share Your Results:</span> Once the relentless timer finally runs out, the
+                        system will immediately present your final verified score, your exact average CPS, and a
+                        stylized rank badge indicating precisely how you stack up compared to millions of other users
+                        worldwide. Don't forget to use the share button to challenge your peers!</li>
+                </ol>
+
+                <h2 class="info-title">Advanced Techniques to Skyrocket Your Score</h2>
+                <p>If your ultimate goal is to achieve a legendary, godlike score on the <strong>spacebar
+                        test</strong>, casual, single-thumb tapping simply will not be enough to break the upper
+                    leaderboards. You must employ highly specific, advanced physical techniques utilized by professional
+                    gamers and speed typing champions to absolutely maximize your hardware's input rate.</p>
+
+                <h3>The Two-Finger Alternating Technique</h3>
+                <p>The single most effective and commonly used method to achieve exceptionally high scores here is the
+                    two-finger alternating technique. Instead of relying on a single, easily fatigued thumb, position
+                    both your index and middle fingers from your dominant hand directly over the center of the spacebar.
+                    Rapidly and rhythmically alternate pressing the spacebar with these two fingers in a drum-roll
+                    fashion. This technique effectively cuts the physical travel time in half, essentially doubling your
+                    potential clicking speed. By mastering this alternating rhythm, many dedicated users can easily
+                    surpass the 10 CPS barrier on the test.</p>
+
+                <h3>The Vibrate/Jitter Technique</h3>
+                <p>Borrowed directly from the competitive Minecraft PvP community where it is used on mice, the jitter
+                    technique can be successfully adapted for this utility. By deliberately tensing the muscles in your
+                    forearm and wrist, you can artificially induce a rapid vibration in your hand. You then carefully
+                    transfer this intense vibration directly down through your thumb or index finger resting lightly on
+                    the spacebar. This method requires a significant amount of practice to control accurately and
+                    demands high physical stamina, but it can yield incredibly high, explosive bursts of speed. It is
+                    the absolute perfect technique for dominating the short 1-second or 5-second challenges where
+                    endurance is not a factor.</p>
+
+                <h3>The Slide/Swipe Technique</h3>
+                <p>A more niche, but highly effective technique for this test involves using the smooth surface of your
+                    fingernails. By positioning two or three fingers horizontally and rapidly swiping them back and
+                    forth across the edge of the spacebar, you can trigger the mechanical switch multiple times in a
+                    single sweeping motion. This works best on keyboards with flat, low-profile keycaps and highly
+                    sensitive linear switches.</p>
+
+                <h2 class="info-title">Deep Dive: Understanding Your Score</h2>
+                <p>After completing an exhausting test, it is vitally important to understand exactly what your final
+                    score actually means in the grand scheme of things. The average, casual computer user typically
+                    scores somewhere between 5 and 7 presses per second when using a traditional single-thumb method. If
+                    you are consistently hitting around 8 to 9 CPS without using advanced techniques, you are already
+                    well above average and possess excellent natural finger dexterity and reflex speed.</p>
+                <p>Scores ranging from 10 to 12 CPS on it officially put you in the elite, highly competitive category.
+                    These impressive scores almost always require the implementation of specialized techniques like the
+                    two-finger alternating method discussed earlier. Reaching this bracket proves you have dedicated
+                    time to practice and hardware optimization.</p>
+                <p>Finally, anything reliably scoring above 13 CPS is widely considered world-class territory. Hitting
+                    these astronomical speeds pushes not only the physical limits of human muscle twitch response but
+                    also the actual mechanical limits of most standard keyboard switches. Achieving a 13+ score on this
+                    platform is a true testament to mechanical mastery.</p>
+
+                <h2 class="info-title" style="margin-top: 60px; margin-bottom: 30px;">Frequently Asked Questions
+                </h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>Does the specific type of keyboard affect my spacebar clicker score?</span>
+                            <span class="faq-icon"></span>
+                        </div>
+                        <div class="faq-content">
+                            Absolutely. The specific type of keyboard you use plays a massive role in your overall
+                            performance. High-end mechanical keyboards equipped with light, linear switches feature a
+                            notably higher actuation point and bounce back much faster than standard membrane keyboards.
+                            This superior design allows for significantly more rapid successive spacebar presses,
+                            measurably improving your maximum score.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>Is this spacebar clicker truly accurate?</span>
+                            <span class="faq-icon"></span>
+                        </div>
+                        <div class="faq-content">
+                            Yes, our tool is incredibly accurate. It utilizes high-resolution JavaScript timing APIs to
+                            ensure absolute millisecond accuracy. It actively listens for the precise spacebar
+                            downstroke at the browser level, preventing default behaviors (like page scrolling) to
+                            ensure every single press is counted instantly and without lag.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>What is considered a "good" spacebar speed score?</span>
+                            <span class="faq-icon"></span>
+                        </div>
+                        <div class="faq-content">
+                            A solid, respectable average score for a casual user is around 6 to 7 presses per second. If
+                            you are specifically practicing for maximum speed using techniques like alternating fingers
+                            on the spacebar, a genuinely competitive score starts at around 9 to 10 CPS. Focus on
+                            maintaining your top speed for the full test duration.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>Can rapidly hitting the spacebar cause injury?</span>
+                            <span class="faq-icon"></span>
+                        </div>
+                        <div class="faq-content">
+                            As with any repetitive physical motion, overexertion can lead to strain. If you are
+                            relentlessly practicing high-intensity spacebar tapping for extended hours without breaks,
+                            you risk developing repetitive strain injuries (RSI) in your wrists or forearms. Take
+                            frequent breaks and stop immediately if you feel any discomfort.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore Tools -->
+        <section class="info-section">
+            <h2 class="info-title">Explore Our <span class="glow-text">Tools</span></h2>
+            <div class="related-grid">
+                <a href="index.html" class="test-card">
+                    <h4>CPS Test (Main)</h4>
+                    <p>Free clicks per second test.</p>
+                </a>
+                <a href="kohi.html" class="test-card">
+                    <h4>Kohi Click Test</h4>
+                    <p>Minecraft PvP clicking speed test.</p>
+                </a>
+                <a href="butterfly.html" class="test-card">
+                    <h4>Butterfly Click Test</h4>
+                    <p>Test your butterfly clicking technique.</p>
+                </a>
+                <a href="jitter.html" class="test-card">
+                    <h4>Jitter Click Test</h4>
+                    <p>Measure your jitter click CPS.</p>
+                </a>
+                <a href="spacebar-clicker.html" class="test-card">
+                    <h4>Spacebar Clicker</h4>
+                    <p>Test your keyboard typing and pressing speed.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Related Guides -->
+        <section class="info-section">
+            <h2 class="info-title">Read Our <span class="glow-text">Guides</span></h2>
+            <div class="related-grid">
+                <a href="how-to-click-faster.html" class="test-card">
+                    <h4>How to Click Faster</h4>
+                    <p>7 proven techniques to boost your CPS.</p>
+                </a>
+                <a href="world-record.html" class="test-card">
+                    <h4>CPS World Record</h4>
+                    <p>Fastest clicks per second ever recorded.</p>
+                </a>
+                <a href="average-cps.html" class="test-card">
+                    <h4>Average CPS Score</h4>
+                    <p>What is a good clicks per second score?</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="logo footer-logo">
+                        <img src="assets/logo/DRAFT2.png" alt="cps test logo" class="logo-img">
+                    </div>
+                    <p class="footer-desc">The fastest, most accurate online clicking tests. Built for competitive
+                        players, speedrunners, and typists who demand millisecond precision.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>CLICK TESTS</h4>
+                    <ul>
+                        <li><a href="index.html">Free CPS Test</a></li>
+                        <li><a href="spacebar-clicker.html">Spacebar Clicker</a></li>
+                        <li><a href="kohi.html">Kohi Click Test</a></li>
+                        <li><a href="butterfly.html">Butterfly Click Test</a></li>
+                        <li><a href="jitter.html">Jitter Click Test</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>GUIDES</h4>
+                    <ul>
+                        <li><a href="how-to-click-faster.html">How to Click Faster — The ultimate guide</a></li>
+                        <li><a href="world-record.html">CPS World Record</a></li>
+                        <li><a href="average-cps.html">Average CPS Score Chart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> CPS Test. All rights reserved.</p>
+                <p>v1.0 — built for speed, by gamers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/test-logic.js"></script>
+</body>
+
+</html>
+>>>>>>> e58cf8aee39da7b05037df7c3cbb5c4181534a30

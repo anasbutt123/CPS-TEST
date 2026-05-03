@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Get in Touch | CPS Test</title>
+    <meta name="description"
+        content="Have questions or feedback? Contact our team today. We're here to help you improve your clicking speed and resolve any issues.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .form-control {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            color: #fff;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .info-card h3 {
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .info-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo">
+                <img src="assets/logo/DRAFT2.png" alt="logo" class="logo-img">
+            </a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <div class="mobile-nav-header">
+                    <img src="assets/logo/DRAFT2.png" alt="logo" class="logo-img">
+                </div>
+                <a href="/">Home</a>
+                <a href="spacebar-clicker">Spacebar Clicker</a>
+                <a href="kohi">Kohi</a>
+                <a href="butterfly">Butterfly</a>
+                <a href="jitter">Jitter</a>
+                <div class="dropdown">
+                    <div class="dropdown-toggle">Guides <span class="arrow">▼</span></div>
+                    <div class="dropdown-menu">
+                        <a href="how-to-click-faster">How to click faster</a>
+                        <a href="world-record">World record</a>
+                        <a href="average-cps">Average cps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section-padding">
+        <header style="text-align: center; margin-bottom: 50px;">
+            <span class="rating-badge glow-border"
+                style="color: var(--accent-cyan); margin-bottom: 20px; display: inline-block;">✉ GET IN TOUCH</span>
+            <div style="font-size: 2.5rem; line-height: 1.1; font-weight: 800; margin-top: 0.67em; margin-bottom: 0.67em;">
+                Contact <span class="glow-text">Us</span></div>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 20px auto;">Have a feature request, found
+                a bug, or just want to say hi? We're listening.</p>
+        </header>
+
+        <div class="contact-info">
+            <div class="info-card">
+                <h3>Support</h3>
+                <p>support@yourdomain.com</p>
+            </div>
+            <div class="info-card">
+                <h3>Collaborations</h3>
+                <p>partners@yourdomain.com</p>
+            </div>
+            <div class="info-card">
+                <h3>Response Time</h3>
+                <p>Under 24 hours</p>
+            </div>
+        </div>
+
+        <div class="contact-container">
+            <form action="#">
+                <div class="form-group">
+                    <label for="name">FULL NAME</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">EMAIL ADDRESS</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">SUBJECT</label>
+                    <input type="text" id="subject" class="form-control" placeholder="How can we help?" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">YOUR MESSAGE</label>
+                    <textarea id="message" class="form-control" placeholder="Type your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary submit-btn">SEND MESSAGE →</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="logo footer-logo">
+                        <img src="assets/logo/DRAFT2.png" alt="logo" class="logo-img">
+                    </div>
+                    <p class="footer-desc">The fastest, most accurate online utility. Built for Minecraft PvP
+                        players, speedrunners, and anyone who wants to show their true clicking speed.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>CLICK TESTS</h4>
+                    <ul>
+                        <li><a href="/">Main Clicker</a></li>
+                        <li><a href="spacebar-clicker">Spacebar Clicker</a></li>
+                        <li><a href="kohi">Kohi Click Test (10s)</a></li>
+                        <li><a href="butterfly">Butterfly Click Test</a></li>
+                        <li><a href="jitter">Jitter Click Test</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>GUIDES</h4>
+                    <ul>
+                        <li><a href="how-to-click-faster">How to Click Faster — The ultimate guide</a></li>
+                        <li><a href="world-record">CPS World Record</a></li>
+                        <li><a href="average-cps">Average CPS Score Chart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about-us">About Us</a></li>
+                        <li><a href="contact-us">Contact Us</a></li>
+                        <li><a href="privacy-policy">Privacy Policy</a></li>
+                        <li><a href="terms-conditions">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> CPS TEST. All rights reserved.</p>
+                <p>v1.0 — built for clickers, by clickers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

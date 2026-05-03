@@ -1,0 +1,849 @@
+/*
+ * ============================================================
+ *  CPS TOOL — AntiGravity | Mobile Responsive Layer v2.0
+ *  Replaces: css/responsive.css
+ *  Target:   Mobile-first, 320px → 1024px
+ * ============================================================
+ *
+ *  USAGE: Drop this file into your /css/ folder and rename it
+ *  responsive.css (overwriting the old one). No HTML changes
+ *  are needed — this file handles everything via media queries
+ *  and a few universal base fixes.
+ *
+ *  IMPORTANT: In every HTML page that has a hamburger menu,
+ *  make sure the <nav> contains:
+ *    <button class="mobile-menu-toggle" id="mobile-menu-toggle" ...>
+ *  Your existing index.html already does — make sure the other
+ *  pages (kohi.html, butterfly.html, jitter.html, world-record.html)
+ *  also include that button if they share the same navbar.
+ * ============================================================
+ */
+
+/* ============================================================
+   0. BASE / UNIVERSAL FIXES
+   Prevent horizontal overflow on every screen size.
+   ============================================================ */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    /* Improve tap responsiveness */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: pan-y;
+}
+
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================================================
+   1. TABLET  (≤ 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 24px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .modal-content-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* ============================================================
+   2. MOBILE  (≤ 768px)
+   Primary breakpoint — phones in portrait / small landscape.
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* ----------------------------------------------------------
+       2.1  NAVBAR & MOBILE DRAWER
+       ---------------------------------------------------------- */
+    .navbar {
+        padding: 12px 0;
+        background: rgba(12, 17, 23, 0.8) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    .nav-content {
+        position: relative;
+    }
+
+    /* Hamburger Button Improvements */
+    .mobile-menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 242, 255, 0.05);
+        border: 1px solid rgba(0, 242, 255, 0.1);
+        border-radius: 10px;
+        cursor: pointer;
+        z-index: 3000;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        margin-left: auto;
+    }
+
+    .mobile-menu-toggle:active {
+        transform: scale(0.9);
+        background: rgba(0, 242, 255, 0.1);
+    }
+
+    .mobile-menu-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--accent-cyan);
+        border-radius: 2px;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        position: absolute;
+    }
+
+    .mobile-menu-toggle span:nth-child(1) { transform: translateY(-7px); }
+    .mobile-menu-toggle span:nth-child(2) { width: 16px; transform: translateX(-3px); }
+    .mobile-menu-toggle span:nth-child(3) { transform: translateY(7px); }
+
+    /* Active X State */
+    .mobile-menu-toggle.active {
+        background: rgba(239, 68, 68, 0.1);
+        border-color: rgba(239, 68, 68, 0.2);
+    }
+
+    .mobile-menu-toggle.active span {
+        background: #ef4444;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) { transform: translateY(0) rotate(45deg); }
+    .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; transform: translateX(10px); }
+    .mobile-menu-toggle.active span:nth-child(3) { transform: translateY(0) rotate(-45deg); }
+
+    /* Premium Slide-in Drawer */
+    .nav-links {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 380px;
+        height: 100vh;
+        height: 100dvh;
+        background: linear-gradient(135deg, rgba(12, 17, 23, 0.98), rgba(20, 27, 38, 0.99));
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        flex-direction: column !important;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: 100px 40px 40px !important;
+        gap: 0 !important;
+        transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 2000;
+        border-left: 1px solid rgba(0, 242, 255, 0.15);
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.8);
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    /* Mobile Drawer Header */
+    .mobile-nav-header {
+        position: absolute;
+        top: 15px;
+        left: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .mobile-nav-header .logo-img {
+        height: 32px;
+        width: auto;
+    }
+
+    /* Staggered entrance animation for links */
+    .nav-links a, 
+    .nav-links .dropdown {
+        opacity: 0;
+        transform: translateX(30px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-links.active a, 
+    .nav-links.active .dropdown {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .nav-links.active a:nth-child(1) { transition-delay: 0.1s; }
+    .nav-links.active a:nth-child(2) { transition-delay: 0.15s; }
+    .nav-links.active a:nth-child(3) { transition-delay: 0.2s; }
+    .nav-links.active a:nth-child(4) { transition-delay: 0.25s; }
+    .nav-links.active a:nth-child(5) { transition-delay: 0.3s; }
+    .nav-links.active .dropdown { transition-delay: 0.35s; }
+
+    .nav-links a {
+        font-size: 1.25rem !important;
+        font-weight: 700 !important;
+        padding: 20px 0 !important;
+        letter-spacing: 1px;
+        color: #fff !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-links a::after {
+        content: '→';
+        font-size: 1rem;
+        opacity: 0.3;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--accent-cyan) !important;
+    }
+
+    .nav-links a.active::after {
+        opacity: 1;
+        transform: translateX(5px);
+        color: var(--accent-cyan);
+    }
+
+    /* Mobile Dropdown (Accordion Style) */
+    .dropdown {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 0;
+        margin-top: 10px;
+    }
+
+    .dropdown-toggle {
+        font-size: 1.25rem !important;
+        font-weight: 700 !important;
+        color: #fff !important;
+        padding: 20px 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dropdown-toggle .arrow {
+        font-size: 0.8rem;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        color: var(--accent-cyan);
+    }
+
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 12px;
+        margin-top: 10px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 20px;
+        gap: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: flex;
+        animation: slideDownFade 0.4s ease forwards;
+    }
+
+    @keyframes slideDownFade {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dropdown.active .dropdown-toggle .arrow {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu a {
+        font-size: 1rem !important;
+        padding: 12px 0 !important;
+        color: var(--text-secondary) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .dropdown-menu a:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown-menu a::after {
+        content: none;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Blur entire screen content when menu is open */
+    body.nav-open main,
+    body.nav-open footer,
+    body.nav-open .navbar > .container > :not(#nav-links):not(#mobile-menu-toggle) {
+        filter: blur(12px) brightness(0.7);
+        transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+        user-select: none;
+    }
+
+    /* Ensure navbar itself stays clean but content within blurs if needed */
+    .navbar {
+        transition: backdrop-filter 0.4s ease;
+    }
+
+    /* ----------------------------------------------------------
+       2.2  LAYOUT / SPACING
+       ---------------------------------------------------------- */
+    .section-padding {
+        padding: 40px 0;
+    }
+
+    main.container {
+        padding-top: 24px;
+    }
+
+    /* Hero header */
+    header h1 {
+        font-size: clamp(1.6rem, 7vw, 2.6rem) !important;
+        line-height: 1.15 !important;
+    }
+
+    header p {
+        font-size: 0.9rem !important;
+        margin: 14px auto !important;
+    }
+
+    header {
+        margin-bottom: 28px !important;
+    }
+
+    /* ----------------------------------------------------------
+       2.3  MODE TABS  (TIMED / CHALLENGE / ENDURANCE)
+       ---------------------------------------------------------- */
+    .test-container>div:first-child {
+        gap: 8px !important;
+        flex-wrap: wrap;
+        justify-content: center !important;
+    }
+
+    .btn-tab {
+        padding: 10px 16px !important;
+        font-size: 0.75rem !important;
+        flex: 1 1 auto;
+        min-width: 90px;
+        text-align: center;
+    }
+
+    /* ----------------------------------------------------------
+       2.4  DURATION SELECTOR
+       ---------------------------------------------------------- */
+    .duration-selector {
+        flex-wrap: wrap;
+        justify-content: center !important;
+        gap: 8px !important;
+        margin-top: 14px;
+    }
+
+    .duration-selector span {
+        /* hide "DURATION:" label to save space */
+        display: none;
+    }
+
+    .btn-duration {
+        width: 42px !important;
+        height: 36px !important;
+        font-size: 0.8rem !important;
+        flex: 0 0 auto;
+    }
+
+    /* ----------------------------------------------------------
+       2.5  CLICK TEST CONTAINER & CLICK AREA
+       ---------------------------------------------------------- */
+    .click-test-container {
+        padding: 14px !important;
+        margin-top: 16px !important;
+        border-radius: 10px !important;
+    }
+
+    .click-area {
+        /* Tall enough to tap comfortably; not so tall it scrolls off */
+        height: clamp(240px, 52vw, 320px) !important;
+        border-radius: 12px !important;
+    }
+
+    .click-instruction {
+        font-size: clamp(1.1rem, 4.5vw, 1.5rem) !important;
+        padding: 0 16px;
+        text-align: center;
+    }
+
+    .click-hint {
+        font-size: 0.8rem !important;
+        padding: 0 12px;
+        text-align: center;
+    }
+
+    /* Live stats inside click area */
+    .live-count {
+        font-size: clamp(3.5rem, 14vw, 5.5rem) !important;
+        line-height: 1 !important;
+    }
+
+    .live-cps-box {
+        font-size: 0.8rem !important;
+        letter-spacing: 0.5px;
+    }
+
+    .live-remaining {
+        font-size: 0.75rem !important;
+    }
+
+    /* ----------------------------------------------------------
+       2.6  TEST ACTIONS  (mid-test reset button)
+       ---------------------------------------------------------- */
+    .test-actions {
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-reset {
+        width: 50%;
+        justify-content: center !important;
+        padding: 8px !important;
+        font-size: 0.75rem !important;
+    }
+
+    /* ----------------------------------------------------------
+       2.7  RESULTS DASHBOARD
+       ---------------------------------------------------------- */
+    .results-dashboard {
+        padding: 18px !important;
+        border-radius: 12px !important;
+        margin-top: 24px !important;
+    }
+
+    /* 3-column stat cards → single column stack */
+    .modal-header-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .result-card {
+        padding: 18px 20px !important;
+        min-height: 90px !important;
+        border-radius: 10px !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px;
+    }
+
+    .result-card .label {
+        font-size: 0.65rem !important;
+        margin-bottom: 0 !important;
+        white-space: nowrap;
+    }
+
+    .result-card .value {
+        font-size: 2.4rem !important;
+        line-height: 1 !important;
+    }
+
+    .rating-card {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .rating-row {
+        font-size: 1.8rem !important;
+        gap: 8px;
+    }
+
+    .rating-row .icon {
+        font-size: 1.4rem !important;
+    }
+
+    /* PB Banner */
+    .new-pb-banner {
+        font-size: 0.8rem !important;
+        padding: 14px 16px !important;
+        letter-spacing: 1px;
+        gap: 10px;
+    }
+
+    /* Action buttons → full-width stacked */
+    .modal-actions {
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 15px 20px !important;
+        font-size: 0.9rem !important;
+        border-radius: 8px !important;
+    }
+
+    /* Recent scores & PB panels → stacked */
+    .modal-content-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    .score-panel {
+        padding: 16px !important;
+    }
+
+    .panel-header h3 {
+        font-size: 0.8rem !important;
+    }
+
+    .score-row {
+        font-size: 0.85rem !important;
+    }
+
+    /* ----------------------------------------------------------
+       2.8  ENDURANCE CHART
+       ---------------------------------------------------------- */
+    #endurance-chart {
+        padding: 16px !important;
+        border-radius: 10px !important;
+    }
+
+    .bars-wrapper {
+        height: 110px !important;
+        gap: 3px !important;
+        min-width: 100% !important;
+        overflow-x: auto;
+    }
+
+    /* ----------------------------------------------------------
+       2.9  INFO / CONTENT SECTIONS
+       ---------------------------------------------------------- */
+    .info-section {
+        margin-top: 40px;
+    }
+
+    .info-title {
+        font-size: clamp(1.25rem, 5vw, 1.6rem) !important;
+        margin-bottom: 18px;
+    }
+
+    .info-content p,
+    .info-list li {
+        font-size: 0.9rem !important;
+    }
+
+    /* ----------------------------------------------------------
+       2.10  CPS RATING TABLE → Mobile Card Layout
+       ---------------------------------------------------------- */
+    .rating-table {
+        display: block !important;
+        width: 100% !important;
+        border: none !important;
+        background: transparent !important;
+    }
+
+    .rating-table thead {
+        display: none !important;
+    }
+
+    .rating-table tbody {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+
+    .rating-table tr {
+        display: flex !important;
+        flex-direction: column !important;
+        background: var(--bg-surface) !important;
+        padding: 20px !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(0, 242, 255, 0.1) !important;
+        gap: 12px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .rating-table tr::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--accent-cyan);
+    }
+
+    .rating-table td {
+        padding: 0 !important;
+        border: none !important;
+        font-size: 0.95rem;
+    }
+
+    /* Col 1: Range / Duration / Category (Primary Title) */
+    .rating-table td:nth-child(1) {
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: var(--accent-cyan);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Col 2: Result / Rank / Peak (Secondary Highlight) */
+    .rating-table td:nth-child(2) {
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Col 3: Description / Notes (Body text) */
+    .rating-table td:nth-child(3) {
+        font-size: 0.88rem !important;
+        color: var(--text-secondary) !important;
+        line-height: 1.5;
+        padding-top: 10px !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+
+    /* Special handling for headers and grids in Guide pages */
+    .info-content div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+
+    .test-card {
+        width: 100% !important;
+        min-width: 0 !important;
+        flex: none !important;
+    }
+
+    /* ----------------------------------------------------------
+       2.11  FAQ ACCORDION
+       ---------------------------------------------------------- */
+    .faq-header {
+        padding: 18px 18px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .faq-content {
+        padding: 0 18px 18px !important;
+        font-size: 0.88rem !important;
+    }
+
+    /* ----------------------------------------------------------
+       2.12  RELATED TESTS GRID
+       ---------------------------------------------------------- */
+    .related-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+        margin-top: 20px;
+    }
+
+    .test-card {
+        padding: 18px 16px !important;
+        border-radius: 8px !important;
+    }
+
+    .test-card h4 {
+        font-size: 0.9rem !important;
+        margin-bottom: 6px !important;
+    }
+
+    .test-card p {
+        font-size: 0.78rem !important;
+    }
+
+    /* ----------------------------------------------------------
+       2.13  CTA BANNER
+       ---------------------------------------------------------- */
+    .click-test-container[style*="text-align: center"] {
+        padding: 28px 20px !important;
+        margin-top: 40px !important;
+    }
+
+    .click-test-container[style*="text-align: center"] h2 {
+        font-size: clamp(1.2rem, 5vw, 1.8rem) !important;
+        margin-bottom: 8px !important;
+    }
+
+    .click-test-container[style*="text-align: center"] p {
+        font-size: 0.88rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* ----------------------------------------------------------
+       2.14  FOOTER
+       ---------------------------------------------------------- */
+    .footer {
+        padding: 40px 0 24px !important;
+        margin-top: 60px !important;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .footer-desc {
+        font-size: 0.85rem !important;
+    }
+
+    .footer-links h4 {
+        font-size: 0.8rem !important;
+        margin-bottom: 14px !important;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 8px !important;
+    }
+
+    .footer-links ul li a {
+        font-size: 0.82rem !important;
+    }
+
+    .footer-bottom {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 6px !important;
+        text-align: center !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+/* ============================================================
+   3. SMALL PHONE  (≤ 480px)
+   Extra tweaks for 320–480px screens.
+   ============================================================ */
+@media (max-width: 480px) {
+
+    .container {
+        padding: 0 16px;
+    }
+
+    /* Navbar */
+    .logo {
+        font-size: 1.1rem !important;
+    }
+
+    .logo-icon {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    .logo-img {
+        height: 26px !important;
+    }
+
+    /* Click area — taller on small phones for easy tapping */
+    .click-area {
+        height: clamp(220px, 55vw, 280px) !important;
+    }
+
+    /* Live count */
+    .live-count {
+        font-size: clamp(3rem, 16vw, 4.5rem) !important;
+    }
+
+    /* Mode tabs — tighter */
+    .btn-tab {
+        padding: 8px 10px !important;
+        font-size: 0.7rem !important;
+        min-width: 80px;
+    }
+
+    /* Duration buttons — fit 6 in a row on 320px */
+    .btn-duration {
+        width: 38px !important;
+        height: 34px !important;
+        font-size: 0.75rem !important;
+    }
+
+    /* Result stat cards — larger value text on small screen */
+    .result-card .value {
+        font-size: 2rem !important;
+    }
+
+    /* Related tests → single column on very small phones */
+    .related-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* CTA button */
+    .btn-primary {
+        font-size: 0.82rem !important;
+        padding: 13px 16px !important;
+        letter-spacing: 0.5px !important;
+    }
+}
+
+/* ============================================================
+   4. LANDSCAPE PHONE  (max-height: 500px, orientation: landscape)
+   Prevent the click area from being taller than the screen.
+   ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .click-area {
+        height: 180px !important;
+    }
+
+    header {
+        margin-bottom: 16px !important;
+    }
+
+    header h1 {
+        font-size: 1.4rem !important;
+    }
+
+    .section-padding {
+        padding: 24px 0;
+    }
+
+    .click-test-container {
+        padding: 10px !important;
+    }
+}
+
+/* ============================================================
+   5. UTILITY: prevent body scroll when nav drawer is open
+   Add/remove class "nav-open" on <body> via JS when the
+   mobile menu toggles. The existing main.js already handles
+   the toggle — just add:
+       document.body.classList.toggle('nav-open');
+   inside the menuToggle click handler if you want scroll-lock.
+   ============================================================ */
+body.nav-open {
+    overflow: hidden;
+}

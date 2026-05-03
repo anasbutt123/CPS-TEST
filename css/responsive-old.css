@@ -1,0 +1,218 @@
+/* 
+    CPS Tool - Ultimate Mobile Response Layer
+    Targeting zero horizontal overflow and app-like experience
+*/
+
+/* Global Mobile Fixes */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- Mobile Navigation (Hamburger) --- */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: #0c1117;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        gap: 30px !important;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 2000;
+        border-left: 1px solid rgba(0, 242, 255, 0.1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
+    }
+
+    .mobile-menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 3000;
+        padding: 10px;
+    }
+
+    .mobile-menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--accent-cyan);
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* --- Results Dashboard (CRITICAL FIX) --- */
+    .results-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    .result-card, .rating-card {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 25px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    }
+
+    .card-value {
+        font-size: 2.5rem !important;
+    }
+
+    .modal-actions {
+        flex-direction: column !important;
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    .modal-actions .btn-primary, .modal-actions .btn-secondary {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 18px !important;
+        font-size: 1rem !important;
+    }
+
+    /* --- Recent Scores & PB (STACKING) --- */
+    #results-dashboard > div:last-child {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        margin-top: 20px !important;
+    }
+
+    .recent-scores, .personal-bests {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    /* --- Click Area Optimization --- */
+    .click-test-container {
+        padding: 15px !important;
+        margin-top: 20px !important;
+    }
+
+    .click-area {
+        height: 280px !important;
+        width: 100% !important;
+    }
+
+    .live-count {
+        font-size: 4rem !important;
+    }
+
+    .click-instruction {
+        font-size: 1.3rem !important;
+        padding: 0 10px;
+    }
+
+    /* --- Table Fix (REPLACING WITH CARD STYLE) --- */
+    .rating-table {
+        display: block !important;
+        width: 100% !important;
+        border: none !important;
+    }
+
+    .rating-table thead {
+        display: none !important;
+    }
+
+    .rating-table tbody {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .rating-table tr {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        background: #0c1117;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.05);
+        gap: 10px;
+    }
+
+    .rating-table td {
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    .rating-table td:nth-child(1) {
+        font-weight: 700;
+        color: var(--accent-cyan);
+    }
+
+    .rating-table td:nth-child(3) {
+        grid-column: span 2;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        border-top: 1px solid rgba(255,255,255,0.05);
+        padding-top: 8px !important;
+    }
+
+    /* --- Charts --- */
+    .bars-wrapper {
+        min-width: 100% !important;
+        height: 120px !important;
+        gap: 4px !important;
+    }
+
+    .chart-container .label {
+        font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .logo {
+        font-size: 1.2rem !important;
+    }
+
+    .btn-tab {
+        font-size: 0.65rem !important;
+        padding: 10px 4px !important;
+    }
+
+    .duration-selector span {
+        display: none; /* Save space */
+    }
+}

@@ -1040,4 +1040,57 @@ ul {
     .info-title {
         font-size: 1.5rem;
     }
+
+    #scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Scroll to Top Button */
+#scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--bg-surface);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 50%;
+    color: var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--glow-cyan);
+}
+
+#scroll-to-top.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scroll-to-top:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-dark);
+    box-shadow: var(--glow-cyan-strong);
+    transform: translateY(-5px);
+}
+
+#scroll-to-top svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+#scroll-to-top:hover svg {
+    transform: translateY(-2px);
 }

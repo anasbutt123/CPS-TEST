@@ -448,6 +448,29 @@ ul {
 .info-title {
     font-size: 1.8rem;
     margin-bottom: 25px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+h3.info-title { font-size: 1.6rem; }
+h4.info-title { font-size: 1.4rem; }
+h5.info-title { font-size: 1.2rem; }
+
+.info-content h4 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 35px 0 15px;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.info-content h5 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 25px 0 10px;
+    font-weight: 700;
 }
 
 .info-content p {

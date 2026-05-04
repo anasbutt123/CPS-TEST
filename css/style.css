@@ -112,7 +112,8 @@ ul {
     transition: var(--transition);
 }
 
-.mobile-nav-header {
+.mobile-nav-header,
+.mobile-menu-toggle {
     display: none;
 }
 

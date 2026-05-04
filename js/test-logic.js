@@ -548,7 +548,7 @@ class CPSTest {
         const timeVal = this.mode === 'challenge' ? (this.finalTime ? this.finalTime.toFixed(2) : "0") : this.duration;
         
         const page = window.location.pathname.split('/').pop() || '';
-        const link = `cpstest.site/${page}`;
+        const link = `cpstester.tech/${page}`;
         
         const textToCopy = `I scored ${cps} CPS in ${timeVal}s! Beat me: ${link}`;
         

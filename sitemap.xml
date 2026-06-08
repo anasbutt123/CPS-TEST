@@ -18,7 +18,7 @@
 
     <!-- ESTABLISHED: Core Tool Pages -->
     <url><loc>https://www.cpstester.tech/kohi</loc><lastmod>2026-06-08</lastmod><priority>0.90</priority></url>
-    <url><loc>https://www.cpstester.tech/butterfly.html</loc><lastmod>2026-06-08</lastmod><priority>0.90</priority></url>
+    <url><loc>https://www.cpstester.tech/butterfly</loc><lastmod>2026-06-08</lastmod><priority>0.90</priority></url>
     <url><loc>https://www.cpstester.tech/jitter</loc><lastmod>2026-06-08</lastmod><priority>0.90</priority></url>
     <url><loc>https://www.cpstester.tech/spacebar-clicker</loc><lastmod>2026-06-08</lastmod><priority>0.90</priority></url>
 
@@ -28,7 +28,7 @@
     <url><loc>https://www.cpstester.tech/average-cps</loc><lastmod>2026-06-08</lastmod><priority>0.80</priority></url>
     <url><loc>https://www.cpstester.tech/what-is-a-good-cps-score</loc><lastmod>2026-06-09</lastmod><priority>0.80</priority></url>
     <url><loc>https://www.cpstester.tech/blog</loc><lastmod>2026-06-09</lastmod><priority>0.90</priority></url>
-    <url><loc>https://www.cpstester.tech/blog/how-to-increase-cps</loc><lastmod>2026-06-09</lastmod><priority>0.80</priority></url>
+    <url><loc>https://www.cpstester.tech/how-to-increase-cps</loc><lastmod>2026-06-09</lastmod><priority>0.80</priority></url>
 
     <!-- COMPANY -->
     <url><loc>https://www.cpstester.tech/about-us</loc><lastmod>2026-06-08</lastmod><priority>0.50</priority></url>

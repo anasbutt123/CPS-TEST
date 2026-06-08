@@ -1,16 +1,49 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/cps-test-unblocked", "destination": "/cps-test-unblocked.html" },
-    { "source": "/drag-click-test", "destination": "/drag-click-test.html" },
-    { "source": "/right-click-test", "destination": "/right-click-test.html" },
-    { "source": "/double-click-test", "destination": "/double-click-test.html" },
-    { "source": "/1-second-test", "destination": "/1-second-test.html" },
-    { "source": "/5-second-test", "destination": "/5-second-test.html" },
-    { "source": "/10-second-test", "destination": "/10-second-test.html" },
-    { "source": "/30-second-test", "destination": "/30-second-test.html" },
-    { "source": "/60-second-test", "destination": "/60-second-test.html" },
-    { "source": "/what-is-a-good-cps-score", "destination": "/what-is-a-good-cps-score.html" },
-    { "source": "/good-cps-for-minecraft", "destination": "/good-cps-for-minecraft.html" }
+    {
+      "source": "/cps-test-unblocked",
+      "destination": "/cps-test-unblocked.html"
+    },
+    {
+      "source": "/drag-click-test",
+      "destination": "/drag-click-test.html"
+    },
+    {
+      "source": "/right-click-test",
+      "destination": "/right-click-test.html"
+    },
+    {
+      "source": "/double-click-test",
+      "destination": "/double-click-test.html"
+    },
+    {
+      "source": "/1-second-test",
+      "destination": "/1-second-test.html"
+    },
+    {
+      "source": "/5-second-test",
+      "destination": "/5-second-test.html"
+    },
+    {
+      "source": "/10-second-test",
+      "destination": "/10-second-test.html"
+    },
+    {
+      "source": "/30-second-test",
+      "destination": "/30-second-test.html"
+    },
+    {
+      "source": "/60-second-test",
+      "destination": "/60-second-test.html"
+    },
+    {
+      "source": "/what-is-a-good-cps-score",
+      "destination": "/what-is-a-good-cps-score.html"
+    },
+    {
+      "source": "/blog/how-to-increase-cps",
+      "destination": "/how-to-increase-cps.html"
+    }
   ]
 }

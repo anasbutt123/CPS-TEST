@@ -40,14 +40,6 @@
     {
       "source": "/what-is-a-good-cps-score",
       "destination": "/what-is-a-good-cps-score.html"
-    },
-    {
-      "source": "/blog",
-      "destination": "/blog.html"
-    },
-    {
-      "source": "/blog/how-to-increase-cps",
-      "destination": "/how-to-increase-cps.html"
     }
   ]
 }

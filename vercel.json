@@ -10,6 +10,7 @@
     { "source": "/10-second-test", "destination": "/10-second-test.html" },
     { "source": "/30-second-test", "destination": "/30-second-test.html" },
     { "source": "/60-second-test", "destination": "/60-second-test.html" },
-    { "source": "/what-is-a-good-cps-score", "destination": "/what-is-a-good-cps-score.html" }
+    { "source": "/what-is-a-good-cps-score", "destination": "/what-is-a-good-cps-score.html" },
+    { "source": "/good-cps-for-minecraft", "destination": "/good-cps-for-minecraft.html" }
   ]
 }

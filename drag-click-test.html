@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9N284C56X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N9N284C56X');</script>
+    <meta name="google-adsense-account" content="ca-pub-5808457482265728">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag Click Test — Measure Your Drag Clicking CPS Speed</title>
+    <link rel="canonical" href="https://www.cpstester.tech/drag-click-test" />
+    <meta name="description" content="Take the drag click test and measure your drag clicking CPS. The most accurate drag click speed tester online. Test your drag click speed now!">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.cpstester.tech/"},{"@type":"ListItem","position":2,"name":"Drag Click Test","item":"https://www.cpstester.tech/drag-click-test"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Drag Click Test","url":"https://www.cpstester.tech/drag-click-test","applicationCategory":"GameApplication","operatingSystem":"Web","description":"Test your drag clicking speed with our accurate drag click test.","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","ratingCount":"1024"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is drag clicking?","acceptedAnswer":{"@type":"Answer","text":"Drag clicking is a mouse technique where you drag your finger across the button to create friction, registering dozens of clicks per second. It is widely used in Minecraft PvP for high CPS scores."}},{"@type":"Question","name":"What CPS can you get from drag clicking?","acceptedAnswer":{"@type":"Answer","text":"Skilled drag clickers can achieve 25 to 100+ clicks per second, far exceeding jitter or butterfly clicking."}},{"@type":"Question","name":"What mouse is best for drag clicking?","acceptedAnswer":{"@type":"Answer","text":"Best mice for drag clicking have a textured button surface. Popular choices include the Glorious Model O, Razer DeathAdder, and Roccat Kone Pure Ultra."}},{"@type":"Question","name":"Does drag clicking damage your mouse?","acceptedAnswer":{"@type":"Answer","text":"Yes, drag clicking accelerates wear on the mouse button surface and mechanical switch over time."}}]}</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/png" href="assets/logo/DRAFT1.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo"><img src="assets/logo/DRAFT2.png" alt="cps test logo" class="logo-img"></a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+            <div class="nav-links" id="nav-links">
+                <div class="mobile-nav-header"><img src="assets/logo/DRAFT2.png" alt="logo" class="logo-img"></div>
+                <a href="/">Home</a>
+                <a href="spacebar-clicker">Spacebar Clicker</a>
+                <a href="kohi">Kohi</a>
+                <a href="butterfly">Butterfly</a>
+                <a href="jitter">Jitter</a>
+                <div class="dropdown">
+                    <div class="dropdown-toggle">Guides <span class="arrow">▼</span></div>
+                    <div class="dropdown-menu">
+                        <a href="how-to-click-faster">How to click faster</a>
+                        <a href="world-record">World record</a>
+                        <a href="average-cps">Average cps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section-padding">
+        <header style="text-align:center;margin-bottom:50px;">
+            <span class="rating-badge glow-border" style="color:var(--accent-cyan);margin-bottom:20px;display:inline-block;">⚡ DRAG CLICK TEST</span>
+            <div style="font-size:2rem;line-height:1.2;font-weight:bold;margin:0.2em 0;text-transform:uppercase;"><span class="glow-text">Drag Click</span> Test<br>How Fast Can You Drag Click?</div>
+            <p style="color:var(--text-secondary);max-width:600px;margin:20px auto;">The most accurate <strong>drag click test</strong> online. Measure your drag clicking CPS with millisecond precision and see if you can hit 30+ clicks per second.</p>
+        </header>
+
+        <section class="test-container">
+            <div style="display:flex;gap:10px;justify-content:center;margin-bottom:20px;">
+                <button class="btn-tab active" data-mode="timed">TIMED</button>
+                <button class="btn-tab" data-mode="challenge">CHALLENGE</button>
+                <button class="btn-tab" data-mode="endurance">ENDURANCE</button>
+            </div>
+            <div class="duration-selector" id="duration-selector" style="justify-content:center;">
+                <span style="font-size:0.8rem;color:var(--text-muted);align-self:center;margin-right:10px;">DURATION:</span>
+                <button class="btn-duration" data-seconds="1">1s</button>
+                <button class="btn-duration active" data-seconds="5">5s</button>
+                <button class="btn-duration" data-seconds="10">10s</button>
+                <button class="btn-duration" data-seconds="15">15s</button>
+                <button class="btn-duration" data-seconds="30">30s</button>
+                <button class="btn-duration" data-seconds="60">60s</button>
+            </div>
+            <div class="challenge-message" id="challenge-message" style="display:none;justify-content:center;align-items:center;gap:10px;margin-bottom:20px;font-size:0.95rem;color:var(--text-secondary);"><span style="color:var(--accent-cyan);font-weight:700;letter-spacing:1px;">CHALLENGE:</span> Reach <strong style="color:#fff;">100</strong> clicks as fast as you can.</div>
+            <div class="endurance-message" id="endurance-message" style="display:none;justify-content:center;align-items:center;gap:10px;margin-bottom:20px;font-size:0.95rem;color:var(--text-secondary);"><span style="color:var(--accent-cyan);font-weight:700;letter-spacing:1px;">ENDURANCE:</span> Full 60s test — keep clicking.</div>
+            <div class="click-test-container">
+                <div class="time-bar-container"><div class="time-bar"></div></div>
+                <div class="click-area" id="click-area">
+                    <div class="click-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.5 3.5L11 19.5L13.5 12.5L20.5 10L5.5 3.5Z" stroke="#00f2ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.5 2.5V4.5" stroke="#00f2ff" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M15.5 4.5L14.5 6" stroke="#00f2ff" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M9.5 4.5L10.5 6" stroke="#00f2ff" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="click-instruction">Click anywhere here to start</div>
+                    <div class="click-hint">First click starts the timer • You have 5 seconds</div>
+                    <div class="live-stats">
+                        <div class="live-count" id="live-clicks-count">0</div>
+                        <div class="live-cps-box">CLICKS • <span id="live-cps-value">0.0</span> CPS</div>
+                        <div class="live-remaining" id="live-time-remaining">5.00S REMAINING</div>
+                    </div>
+                </div>
+            </div>
+            <div class="test-actions"><button class="btn-reset" id="mid-test-reset"><span>↺</span> RESET CLICKER</button></div>
+            <div class="results-dashboard" id="results-dashboard">
+                <div class="modal-header-grid">
+                    <div class="result-card"><span class="label">CLICKS</span><span class="value" id="res-clicks">0</span></div>
+                    <div class="result-card"><span class="label">TIME</span><span class="value" id="res-time">5.00s</span></div>
+                    <div class="result-card rating-card"><span class="label">RATING</span><div class="rating-row"><span class="icon">🔥</span><span class="value" id="res-rating-value">-</span></div></div>
+                </div>
+                <div class="new-pb-banner" id="new-pb-banner"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9C6 9 3 9 3 6C3 3 6 3 6 3V9ZM18 9C18 9 21 9 21 6C21 3 18 3 18 3V9ZM6 3H18V12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12V3ZM12 18V21M8 21H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>NEW PERSONAL BEST</span></div>
+                <div class="chart-container" id="endurance-chart" style="display:none;margin-top:20px;background:#0c1117;border:1px solid rgba(255,255,255,0.05);padding:25px;border-radius:12px;margin-bottom:20px;">
+                    <div class="label" style="font-size:0.8rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;">CPS PER 5S INTERVAL</div>
+                    <div class="bars-wrapper" style="display:flex;align-items:flex-end;gap:8px;height:180px;padding-bottom:30px;position:relative;"></div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary" id="restart-btn"><span>↺</span> TRY AGAIN</button>
+                    <button class="btn-secondary" id="share-btn"><span>🔗</span> SHARE SCORE</button>
+                </div>
+                <div class="modal-content-grid">
+                    <div class="score-panel"><div class="panel-header"><h3>RECENT SCORES</h3><span class="icon">📈</span></div><div class="score-list" id="recent-scores-list"></div></div>
+                    <div class="score-panel"><div class="panel-header"><h3>PERSONAL BESTS • <span id="pb-mode-title">TIMED</span></h3><span class="icon">🏆</span></div><div class="pb-list" id="pb-list"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h1 class="info-title">Drag Click Test — The Ultimate Drag Clicking Speed Tester</h1>
+            <div class="info-content">
+                <p>Welcome to the most accurate <strong>drag click test</strong> on the internet. Drag clicking is an advanced mouse technique that allows players to register a massive number of clicks per second by dragging their finger across the mouse button surface. Unlike <a href="jitter" style="color:var(--accent-cyan);">jitter clicking</a> or <a href="butterfly" style="color:var(--accent-cyan);">butterfly clicking</a>, drag clicking exploits friction to bounce the mechanical switch dozens of times per swipe.</p>
+
+                <h2 class="info-title">What is Drag Clicking?</h2>
+                <p><strong>Drag clicking</strong> is a technique where you drag your finger from the top to the bottom of a mouse button, causing friction that makes the switch register multiple clicks in a single motion. A skilled drag clicker can register <strong>25 to 100+ clicks per second</strong>, making it the highest-CPS technique available.</p>
+
+                <h2 class="info-title">How to Drag Click — Step-by-Step</h2>
+                <ol class="info-list">
+                    <li><span>Choose the Right Mouse:</span> You need a mouse with a rough or textured button surface and a responsive mechanical switch. Popular choices: Glorious Model O, Razer DeathAdder, Roccat Kone Pure Ultra.</li>
+                    <li><span>Position Your Finger:</span> Place your finger near the top edge of the mouse button at a 30–45 degree angle.</li>
+                    <li><span>Apply Consistent Pressure:</span> Drag your finger downward with moderate, consistent pressure to create friction and make the switch bounce repeatedly.</li>
+                    <li><span>Practice the Motion:</span> Use this <strong>drag click test</strong> to measure progress. Beginners start at 15–20 CPS and can improve to 30–50+ CPS.</li>
+                </ol>
+
+                <h3 class="info-title">Drag Click vs Other Techniques</h3>
+                <table class="rating-table">
+                    <thead><tr><th>TECHNIQUE</th><th>AVG CPS</th><th>DIFFICULTY</th><th>RELATED TEST</th></tr></thead>
+                    <tbody>
+                        <tr><td>Normal Click</td><td>5–8 CPS</td><td style="color:#10b981;font-weight:700;">Easy</td><td><a href="/" style="color:var(--accent-cyan);">CPS Test</a></td></tr>
+                        <tr><td>Jitter Click</td><td>10–14 CPS</td><td style="color:#f59e0b;font-weight:700;">Medium</td><td><a href="jitter" style="color:var(--accent-cyan);">Jitter Test</a></td></tr>
+                        <tr><td>Butterfly Click</td><td>15–25 CPS</td><td style="color:#f59e0b;font-weight:700;">Medium</td><td><a href="butterfly" style="color:var(--accent-cyan);">Butterfly Test</a></td></tr>
+                        <tr><td>Drag Click</td><td>25–100 CPS</td><td style="color:#ec4899;font-weight:700;">Hard</td><td>This page</td></tr>
+                    </tbody>
+                </table>
+
+                <h3 class="info-title">Frequently Asked Questions</h3>
+                <div class="faq-container">
+                    <div class="faq-item"><div class="faq-header"><span>What is drag clicking?</span><span class="faq-icon"></span></div><div class="faq-content">Drag clicking is a technique where you drag your finger across a mouse button to create friction, forcing the switch to bounce and register multiple clicks per swipe. It can achieve 25–100+ CPS.</div></div>
+                    <div class="faq-item"><div class="faq-header"><span>What CPS can you get from drag clicking?</span><span class="faq-icon"></span></div><div class="faq-content">Skilled drag clickers achieve 25 to 100+ clicks per second, far exceeding jitter or butterfly clicking. The exact CPS depends on your mouse, technique, and finger pressure.</div></div>
+                    <div class="faq-item"><div class="faq-header"><span>What mouse is best for drag clicking?</span><span class="faq-icon"></span></div><div class="faq-content">Best mice have a textured button surface. Popular choices: Glorious Model O, Razer DeathAdder, Roccat Kone Pure Ultra. These allow the switch to bounce rapidly when dragged.</div></div>
+                    <div class="faq-item"><div class="faq-header"><span>Does drag clicking damage your mouse?</span><span class="faq-icon"></span></div><div class="faq-content">Yes, drag clicking accelerates wear on the mouse button surface and mechanical switch. Use a mouse designed for high-intensity use if you plan to drag click frequently.</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2 class="info-title">Explore Our <span class="glow-text">Click Tests</span></h2>
+            <div class="related-grid">
+                <a href="/" class="test-card"><h4>CPS Test</h4><p>Main click speed test.</p></a>
+                <a href="jitter" class="test-card"><h4>Jitter Click Test</h4><p>Measure your jitter clicking CPS.</p></a>
+                <a href="butterfly" class="test-card"><h4>Butterfly Click Test</h4><p>Test butterfly clicking speed.</p></a>
+                <a href="kohi" class="test-card"><h4>Kohi Click Test</h4><p>Classic 10-second Minecraft PvP test.</p></a>
+                <a href="right-click-test" class="test-card"><h4>Right Click Test</h4><p>Test your right-click speed.</p></a>
+                <a href="cps-test-unblocked" class="test-card"><h4>CPS Test Unblocked</h4><p>Play at school or work.</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="logo footer-logo"><img src="assets/logo/DRAFT2.png" alt="cps test logo" class="logo-img"></div>
+                    <p class="footer-desc">The fastest, most accurate online clicking tests. Built for competitive players and speedrunners.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>CLICK TESTS</h4>
+                    <ul>
+                        <li><a href="/">CPS Test</a></li>
+                        <li><a href="drag-click-test">Drag Click Test</a></li>
+                        <li><a href="right-click-test">Right Click Test</a></li>
+                        <li><a href="double-click-test">Double Click Test</a></li>
+                        <li><a href="kohi">Kohi Click Test</a></li>
+                        <li><a href="butterfly">Butterfly Click Test</a></li>
+                        <li><a href="jitter">Jitter Click Test</a></li>
+                        <li><a href="spacebar-clicker">Spacebar Clicker</a></li>
+                        <li><a href="cps-test-unblocked">CPS Test Unblocked</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>GUIDES</h4>
+                    <ul>
+                        <li><a href="how-to-click-faster">How to Click Faster</a></li>
+                        <li><a href="world-record">CPS World Record</a></li>
+                        <li><a href="average-cps">Average CPS Score</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about-us">About Us</a></li>
+                        <li><a href="contact-us">Contact Us</a></li>
+                        <li><a href="privacy-policy">Privacy Policy</a></li>
+                        <li><a href="terms-conditions">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> CPS Test. All rights reserved.</p>
+                <p>v1.0 — built for clickers, by clickers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/test-logic.js"></script>
+</body>
+</html>

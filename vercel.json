@@ -1,3 +1,9 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/cps-test-unblocked", "destination": "/cps-test-unblocked.html" },
+    { "source": "/drag-click-test", "destination": "/drag-click-test.html" },
+    { "source": "/right-click-test", "destination": "/right-click-test.html" },
+    { "source": "/double-click-test", "destination": "/double-click-test.html" }
+  ]
 }

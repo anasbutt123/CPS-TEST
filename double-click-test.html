@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9N284C56X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N9N284C56X');</script>
+    <meta name="google-adsense-account" content="ca-pub-5808457482265728">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Click Test — How Fast Can You Double Click Per Second?</title>
+    <link rel="canonical" href="https://www.cpstester.tech/double-click-test" />
+    <meta name="description" content="Take the double click test to measure how fast you can double-click. Check if your mouse can double-click properly and test your double-click speed online.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.cpstester.tech/"},{"@type":"ListItem","position":2,"name":"Double Click Test","item":"https://www.cpstester.tech/double-click-test"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Double Click Test","url":"https://www.cpstester.tech/double-click-test","applicationCategory":"GameApplication","operatingSystem":"Web","description":"Test if your mouse can double-click properly and measure your double-click speed and CPS.","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","ratingCount":"936"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a double click test?","acceptedAnswer":{"@type":"Answer","text":"A double click test checks if your mouse registers double-clicks correctly and measures how fast you can double-click per second. It is useful for diagnosing mouse switch issues like the infamous double-click bug common in many gaming mice."}},{"@type":"Question","name":"Why is my mouse double clicking on its own?","acceptedAnswer":{"@type":"Answer","text":"Unintended double-clicking is usually caused by a worn-out mouse switch (debounce failure). When the mechanical switch contacts bounce after a single press, it registers as two clicks. This is common in older mice or mice with low-quality switches."}},{"@type":"Question","name":"How do I fix a mouse that double clicks?","acceptedAnswer":{"@type":"Answer","text":"You can fix unintended double clicking by increasing the debounce time in mouse software, cleaning the switch contacts with contact cleaner, or replacing the mouse switch entirely. Some mice allow firmware updates that fix debounce issues."}}]}</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/png" href="assets/logo/DRAFT1.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo"><img src="assets/logo/DRAFT2.png" alt="cps test logo" class="logo-img"></a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+            <div class="nav-links" id="nav-links">
+                <div class="mobile-nav-header"><img src="assets/logo/DRAFT2.png" alt="logo" class="logo-img"></div>
+                <a href="/">Home</a>
+                <a href="spacebar-clicker">Spacebar Clicker</a>
+                <a href="kohi">Kohi</a>
+                <a href="butterfly">Butterfly</a>
+                <a href="jitter">Jitter</a>
+                <div class="dropdown">
+                    <div class="dropdown-toggle">Guides <span class="arrow">▼</span></div>
+                    <div class="dropdown-menu">
+                        <a href="how-to-click-faster">How to click faster</a>
+                        <a href="world-record">World record</a>
+                        <a href="average-cps">Average cps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section-padding">
+        <header style="text-align:center;margin-bottom:50px;">
+            <span class="rating-badge glow-border" style="color:var(--accent-cyan);margin-bottom:20px;display:inline-block;">🖱️ DOUBLE CLICK TEST</span>
+            <div style="font-size:2rem;line-height:1.2;font-weight:bold;margin:0.2em 0;text-transform:uppercase;"><span class="glow-text">Double Click</span> Test<br>Is Your Mouse Double-Clicking?</div>
+            <p style="color:var(--text-secondary);max-width:600px;margin:20px auto;">Click the test area as normal and see if your mouse is registering <strong>double clicks</strong> unexpectedly. Also measures your overall click speed and CPS.</p>
+        </header>
+
+        <!-- Double Click Detector Panel -->
+        <section class="test-container" style="margin-bottom:30px;">
+            <div style="background:rgba(0,242,255,0.05);border:1px solid rgba(0,242,255,0.2);border-radius:12px;padding:30px;text-align:center;">
+                <h2 style="font-size:1.2rem;margin-bottom:15px;color:var(--accent-cyan);text-transform:uppercase;letter-spacing:2px;">Double Click Detector</h2>
+                <p style="color:var(--text-secondary);margin-bottom:20px;">Click the button below once. If the counter jumps by 2, your mouse has a double-click problem.</p>
+                <div id="dc-counter" style="font-size:5rem;font-weight:800;color:#fff;font-family:'Space Grotesk',sans-serif;line-height:1;margin:10px 0;">0</div>
+                <div id="dc-status" style="font-size:1rem;color:var(--text-secondary);margin-bottom:20px;">Click the button below to test</div>
+                <button id="dc-test-btn" style="background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));border:none;color:#000;font-weight:800;font-size:1rem;padding:16px 40px;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:1px;text-transform:uppercase;" onmousedown="detectDoubleClick(event)">CLICK ME ONCE</button>
+                <div style="margin-top:15px;"><button onclick="document.getElementById('dc-counter').textContent='0';document.getElementById('dc-status').textContent='Click the button above to test';document.getElementById('dc-status').style.color='var(--text-secondary)';" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:var(--text-secondary);padding:8px 20px;border-radius:6px;cursor:pointer;font-family:inherit;">Reset</button></div>
+            </div>
+        </section>
+
+        <section class="test-container">
+            <div style="display:flex;gap:10px;justify-content:center;margin-bottom:20px;">
+                <button class="btn-tab active" data-mode="timed">TIMED</button>
+                <button class="btn-tab" data-mode="challenge">CHALLENGE</button>
+                <button class="btn-tab" data-mode="endurance">ENDURANCE</button>
+            </div>
+            <div class="duration-selector" id="duration-selector" style="justify-content:center;">
+                <span style="font-size:0.8rem;color:var(--text-muted);align-self:center;margin-right:10px;">DURATION:</span>
+                <button class="btn-duration" data-seconds="1">1s</button>
+                <button class="btn-duration active" data-seconds="5">5s</button>
+                <button class="btn-duration" data-seconds="10">10s</button>
+                <button class="btn-duration" data-seconds="15">15s</button>
+                <button class="btn-duration" data-seconds="30">30s</button>
+                <button class="btn-duration" data-seconds="60">60s</button>
+            </div>
+            <div class="challenge-message" id="challenge-message" style="display:none;justify-content:center;align-items:center;gap:10px;margin-bottom:20px;font-size:0.95rem;color:var(--text-secondary);"><span style="color:var(--accent-cyan);font-weight:700;letter-spacing:1px;">CHALLENGE:</span> Reach <strong style="color:#fff;">100</strong> clicks as fast as you can.</div>
+            <div class="endurance-message" id="endurance-message" style="display:none;justify-content:center;align-items:center;gap:10px;margin-bottom:20px;font-size:0.95rem;color:var(--text-secondary);"><span style="color:var(--accent-cyan);font-weight:700;letter-spacing:1px;">ENDURANCE:</span> Full 60s test.</div>
+            <div class="click-test-container">
+                <div class="time-bar-container"><div class="time-bar"></div></div>
+                <div class="click-area" id="click-area">
+                    <div class="click-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none">
+                            <path d="M5.5 3.5L11 19.5L13.5 12.5L20.5 10L5.5 3.5Z" stroke="#00f2ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11.5 2.5V4.5" stroke="#00f2ff" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M15.5 4.5L14.5 6" stroke="#00f2ff" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M9.5 4.5L10.5 6" stroke="#00f2ff" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="click-instruction">Click anywhere here to start</div>
+                    <div class="click-hint">First click starts the timer • You have 5 seconds</div>
+                    <div class="live-stats">
+                        <div class="live-count" id="live-clicks-count">0</div>
+                        <div class="live-cps-box">CLICKS • <span id="live-cps-value">0.0</span> CPS</div>
+                        <div class="live-remaining" id="live-time-remaining">5.00S REMAINING</div>
+                    </div>
+                </div>
+            </div>
+            <div class="test-actions"><button class="btn-reset" id="mid-test-reset"><span>↺</span> RESET CLICKER</button></div>
+            <div class="results-dashboard" id="results-dashboard">
+                <div class="modal-header-grid">
+                    <div class="result-card"><span class="label">CLICKS</span><span class="value" id="res-clicks">0</span></div>
+                    <div class="result-card"><span class="label">TIME</span><span class="value" id="res-time">5.00s</span></div>
+                    <div class="result-card rating-card"><span class="label">RATING</span><div class="rating-row"><span class="icon">🔥</span><span class="value" id="res-rating-value">-</span></div></div>
+                </div>
+                <div class="new-pb-banner" id="new-pb-banner"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9C6 9 3 9 3 6C3 3 6 3 6 3V9ZM18 9C18 9 21 9 21 6C21 3 18 3 18 3V9ZM6 3H18V12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12V3ZM12 18V21M8 21H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>NEW PERSONAL BEST</span></div>
+                <div class="chart-container" id="endurance-chart" style="display:none;margin-top:20px;background:#0c1117;border:1px solid rgba(255,255,255,0.05);padding:25px;border-radius:12px;margin-bottom:20px;">
+                    <div class="label" style="font-size:0.8rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;">CPS PER 5S INTERVAL</div>
+                    <div class="bars-wrapper" style="display:flex;align-items:flex-end;gap:8px;height:180px;padding-bottom:30px;position:relative;"></div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary" id="restart-btn"><span>↺</span> TRY AGAIN</button>
+                    <button class="btn-secondary" id="share-btn"><span>🔗</span> SHARE SCORE</button>
+                </div>
+                <div class="modal-content-grid">
+                    <div class="score-panel"><div class="panel-header"><h3>RECENT SCORES</h3><span class="icon">📈</span></div><div class="score-list" id="recent-scores-list"></div></div>
+                    <div class="score-panel"><div class="panel-header"><h3>PERSONAL BESTS • <span id="pb-mode-title">TIMED</span></h3><span class="icon">🏆</span></div><div class="pb-list" id="pb-list"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h1 class="info-title">Double Click Test — Check Your Mouse &amp; Measure Speed</h1>
+            <div class="info-content">
+                <p>The <strong>double click test</strong> serves two purposes: it checks if your mouse is accidentally registering double-clicks when you only click once, and it measures your overall click speed (CPS). This is one of the most commonly searched tests in the clicking community because the "double-click bug" affects millions of gaming mice including popular models from Razer, Logitech, and SteelSeries.</p>
+
+                <h2 class="info-title">What is the Double Click Bug?</h2>
+                <p>The double-click bug occurs when a mouse switch's mechanical contacts bounce after a single press, registering as two clicks. This is called switch debounce failure. It is extremely common in mice after 6–18 months of heavy use. Symptoms include:</p>
+                <ul class="info-list">
+                    <li><span>Files opening instead of selecting</span> when you single-click in Windows Explorer.</li>
+                    <li><span>Accidental item drops</span> in games like Minecraft when placing blocks.</li>
+                    <li><span>Unintended double-firing</span> in competitive shooters.</li>
+                </ul>
+
+                <h2 class="info-title">How to Fix Double Clicking Mouse</h2>
+                <ol class="info-list">
+                    <li><span>Increase Debounce Time:</span> In your mouse software (Razer Synapse, Logitech G Hub, etc.), find the debounce or click latency setting and increase it to 10–20ms.</li>
+                    <li><span>Clean the Switch:</span> Open the mouse and spray contact cleaner (like DeoxIT D5) into the switch. This often resolves the bouncing caused by oxidized contacts.</li>
+                    <li><span>Replace the Switch:</span> Kailh GM 8.0 or Omron D2FC-F-7N(10M) switches can be soldered in as replacements for around $1–3 each.</li>
+                    <li><span>Use Windows Fix:</span> Open Control Panel → Mouse → adjust the double-click speed slider to slower.</li>
+                </ol>
+
+                <h3 class="info-title">Frequently Asked Questions</h3>
+                <div class="faq-container">
+                    <div class="faq-item"><div class="faq-header"><span>What is a double click test?</span><span class="faq-icon"></span></div><div class="faq-content">A double click test checks if your mouse registers double-clicks correctly and measures how fast you can double-click per second. It helps diagnose the double-click bug common in gaming mice.</div></div>
+                    <div class="faq-item"><div class="faq-header"><span>Why is my mouse double clicking on its own?</span><span class="faq-icon"></span></div><div class="faq-content">Unintended double-clicking is caused by a worn-out mouse switch (debounce failure). When the mechanical switch contacts bounce after a single press, it registers as two clicks. Common in older or heavily-used mice.</div></div>
+                    <div class="faq-item"><div class="faq-header"><span>How do I fix a mouse that double clicks?</span><span class="faq-icon"></span></div><div class="faq-content">You can fix double clicking by increasing the debounce time in mouse software, cleaning the switch contacts with contact cleaner, or replacing the mouse switch entirely.</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2 class="info-title">Explore Our <span class="glow-text">Click Tests</span></h2>
+            <div class="related-grid">
+                <a href="/" class="test-card"><h4>CPS Test</h4><p>Main click speed test.</p></a>
+                <a href="drag-click-test" class="test-card"><h4>Drag Click Test</h4><p>Test your drag clicking CPS.</p></a>
+                <a href="right-click-test" class="test-card"><h4>Right Click Test</h4><p>Test your right-click speed.</p></a>
+                <a href="jitter" class="test-card"><h4>Jitter Click Test</h4><p>Measure your jitter clicking CPS.</p></a>
+                <a href="butterfly" class="test-card"><h4>Butterfly Click Test</h4><p>Test butterfly clicking speed.</p></a>
+                <a href="cps-test-unblocked" class="test-card"><h4>CPS Test Unblocked</h4><p>Play at school or work.</p></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="logo footer-logo"><img src="assets/logo/DRAFT2.png" alt="cps test logo" class="logo-img"></div>
+                    <p class="footer-desc">The fastest, most accurate online clicking tests. Built for competitive players and speedrunners.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>CLICK TESTS</h4>
+                    <ul>
+                        <li><a href="/">CPS Test</a></li>
+                        <li><a href="drag-click-test">Drag Click Test</a></li>
+                        <li><a href="right-click-test">Right Click Test</a></li>
+                        <li><a href="double-click-test">Double Click Test</a></li>
+                        <li><a href="kohi">Kohi Click Test</a></li>
+                        <li><a href="butterfly">Butterfly Click Test</a></li>
+                        <li><a href="jitter">Jitter Click Test</a></li>
+                        <li><a href="spacebar-clicker">Spacebar Clicker</a></li>
+                        <li><a href="cps-test-unblocked">CPS Test Unblocked</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>GUIDES</h4>
+                    <ul>
+                        <li><a href="how-to-click-faster">How to Click Faster</a></li>
+                        <li><a href="world-record">CPS World Record</a></li>
+                        <li><a href="average-cps">Average CPS Score</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about-us">About Us</a></li>
+                        <li><a href="contact-us">Contact Us</a></li>
+                        <li><a href="privacy-policy">Privacy Policy</a></li>
+                        <li><a href="terms-conditions">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> CPS Test. All rights reserved.</p>
+                <p>v1.0 — built for clickers, by clickers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    var dcCount = 0;
+    function detectDoubleClick(e) {
+        dcCount++;
+        document.getElementById('dc-counter').textContent = dcCount;
+        var status = document.getElementById('dc-status');
+        if (dcCount === 1) {
+            status.textContent = '✅ 1 click registered — your mouse looks fine!';
+            status.style.color = '#10b981';
+        } else if (dcCount === 2) {
+            status.textContent = '⚠️ 2 clicks registered — possible double-click issue!';
+            status.style.color = '#f59e0b';
+        } else {
+            status.textContent = '❌ ' + dcCount + ' clicks — your mouse likely has a double-click bug!';
+            status.style.color = '#ef4444';
+        }
+    }
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/test-logic.js"></script>
+</body>
+</html>
